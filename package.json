@@ -1,0 +1,25 @@
+{
+  "name": "react-form",
+  "version": "0.1.0",
+  "description": "Mixin to get form data in nice object format in react.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "react-mixin",
+    "form-data"
+  ],
+  "author": "Ludwig Magnusson",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "~0.11.1"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "mocha": "^1.21.4",
+    "react": "~0.11.1"
+  }
+}
