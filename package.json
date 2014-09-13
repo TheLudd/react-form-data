@@ -4,7 +4,12 @@
   "description": "Mixin to get form data in nice object format in react.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "bundleReact": "browserify -r react/addons > generated/react-browserified.js",
+    "testWatch": "watchify -x react/addons -t coffee-reactify test/FormDataMixinTest.cjsx -o generated/testsbundle.js -v",
+    "runtests": "touch generated/testsbundle.js && karma start",
+    "dev": "npm run testWatch & npm run runtests",
+    "pretest": "npm run bundleReact && browserify -x react/addons -t coffee-reactify test/FormDataMixinTest.cjsx -o generated/testsbundle.js",
+    "test": "karma start --single-run"
   },
   "keywords": [
     "react",
@@ -18,8 +23,13 @@
     "react": "~0.11.1"
   },
   "devDependencies": {
-    "coffee-script": "^1.8.0",
-    "mocha": "^1.21.4",
-    "react": "~0.11.1"
+    "browserify": "^5.11.2",
+    "coffee-reactify": "^0.5.2",
+    "karma": "^0.12.23",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-mocha": "^0.1.9",
+    "react": "~0.11.1",
+    "should": "^4.0.4",
+    "watchify": "^1.0.2"
   }
 }
