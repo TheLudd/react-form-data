@@ -6,7 +6,9 @@ should = require 'should'
 
 describe 'ReactFormMixin', ->
 
-  form = React.createClass
+  component = null
+
+  TestForm = React.createClass
     mixins: [ FormDataMixin ]
     render: ->
       <form id="f" method="post" onChange={@updateFormData}>
@@ -20,19 +22,29 @@ describe 'ReactFormMixin', ->
         </select>
         <input type="checkbox" name="agree" ref="agree" />
         <input type="checkbox" name="disagree" ref="disagree" defaultChecked={true} />
+        <input type="checkbox" name="want" ref="money" value="money" />
+        <input type="checkbox" name="want" ref="food" value="food" />
+        <input type="checkbox" name="want" ref="love" value="love" />
+        <input type="radio" name="favColor" ref="blue" value="blue" />
+        <input type="radio" name="favColor" ref="green" value="green" />
       </form>
-  component = TestUtils.renderIntoDocument form()
 
-  testEditableField = (ref, name, newVal) ->
+  beforeEach ->
+    component = TestUtils.renderIntoDocument <TestForm />
+
+  testEditableField = (ref, name, newVal) =>
     editable = component.refs[ref].getDOMNode()
     editable.value = newVal
     TestUtils.Simulate.change editable
     component.formData[name].should.equal newVal
 
-  testCheckbox = (refAndName, expectedVal) ->
-    checkbox = component.refs[refAndName].getDOMNode()
+  changeCheckable = (ref) =>
+    checkbox = component.refs[ref].getDOMNode()
     checkbox.checked = !checkbox.checked
     TestUtils.Simulate.change checkbox
+
+  testCheckable = (refAndName, expectedVal) =>
+    changeCheckable refAndName
     component.formData[refAndName].should.equal expectedVal
 
   it 'map text input name to value upon change', ->
@@ -45,7 +57,29 @@ describe 'ReactFormMixin', ->
     testEditableField 'select', 'qty', '2'
 
   it 'should map the name to true for a checked checkbox without value', ->
-    testCheckbox 'agree', true
+    testCheckable 'agree', true
 
   it 'should map the name to false for an unchecked checkbox without value', ->
-    testCheckbox 'disagree', false
+    testCheckable 'disagree', false
+
+  it 'should add checkbox values to a list', ->
+    changeCheckable 'money'
+    component.formData.want.should.eql [ 'money' ]
+
+  it 'should add multiple checkbox calues to a list', ->
+    [ 'money', 'food' ].forEach changeCheckable
+    component.formData.want.should.eql [ 'money', 'food' ]
+
+  it 'should remove selected elements from the list', ->
+    [ 'money', 'food', 'money' ].forEach changeCheckable
+    component.formData.want.should.eql [ 'food' ]
+      
+  it 'should map name to value for selected radio', ->
+    changeCheckable 'blue'
+    component.formData.favColor.should.eql 'blue'
+
+  it 'should change existing selected radio value', ->
+    [ 'blue', 'green' ].forEach changeCheckable
+    component.formData.favColor.should.eql 'green'
+
+      

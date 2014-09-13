@@ -1,13 +1,25 @@
-getValue = (el) ->
-  el.value
+isCheckbox = (el) -> el.getAttribute('type') == 'checkbox'
+
+isMultiChoice = (checkbox) -> checkbox.getAttribute('value')?
+
+toggleValue = (arr, val) ->
+  valueIndex = arr.indexOf val
+  if valueIndex != -1 then arr.splice valueIndex, 1 else arr.push val
+  return arr
+
+getValue = (el, currentValue) ->
+  unless isCheckbox el
+    return el.value
+  else
+    if isMultiChoice el
+      currentValue ?= []
+      return toggleValue currentValue, el.value
+    else
+      return el.checked
 
 module.exports =
   componentWillMount: -> @formData = {}
   updateFormData: (e) ->
     t = e.target
     key = t.getAttribute 'name'
-    unless t.getAttribute('type') == 'checkbox'
-      val = getValue t
-    else
-      val = t.checked
-    @.formData[key] = val
+    @.formData[key] = getValue t, @.formData[key]
