@@ -23,3 +23,4 @@ module.exports =
     t = e.target
     key = t.getAttribute 'name'
     @.formData[key] = getValue t, @.formData[key]
+    @formDataDidChange() if @formDataDidChange?

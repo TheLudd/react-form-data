@@ -9,7 +9,8 @@
     "runtests": "touch generated/testsbundle.js && karma start",
     "dev": "npm run testWatch & npm run runtests",
     "pretest": "npm run bundleReact && browserify -x react/addons -t coffee-reactify test/FormDataMixinTest.cjsx -o generated/testsbundle.js",
-    "test": "karma start --single-run"
+    "test": "karma start --single-run",
+    "demo": "coffee demo/server.coffee"
   },
   "keywords": [
     "react",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "browserify": "^5.11.2",
     "coffee-reactify": "^0.5.2",
+    "coffee-script": "^1.8.0",
     "karma": "^0.12.23",
     "karma-chrome-launcher": "^0.1.4",
     "karma-mocha": "^0.1.9",
