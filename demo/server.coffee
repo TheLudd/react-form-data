@@ -18,6 +18,7 @@ http.Server (req, res) ->
     b.add __dirname + '/app.coffee'
     b.transform 'coffee-reactify'
     b.bundle (e, out) ->
+      console.log e if e?
       res.setHeader 'Content-Type', 'application/javascript'
       res.end out
   else
@@ -26,4 +27,4 @@ http.Server (req, res) ->
   if e?
     console.err e
   else
-    console.log 'Acceptance test server running on port 3000'
+    console.log 'Demo server running on port 3000'
