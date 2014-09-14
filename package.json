@@ -1,7 +1,7 @@
 {
-  "name": "react-form",
+  "name": "react-form-data",
   "version": "0.1.0",
-  "description": "React mixin to get form data in nice object format.",
+  "description": "React mixin to get form data in nice javascript object format.",
   "main": "index.js",
   "scripts": {
     "prepublish": "coffee -o dist -cb lib",
@@ -11,6 +11,7 @@
     "dev": "npm run testWatch & npm run runtests",
     "pretest": "npm run bundleReact && browserify -x react/addons -t coffee-reactify test/FormDataMixinTest.cjsx -o generated/testsbundle.js",
     "test": "karma start --single-run",
+    "predemo": "npm i",
     "demo": "coffee demo/server.coffee"
   },
   "keywords": [
@@ -19,10 +20,21 @@
     "react-mixin",
     "form-data"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheLudd/react-form-data"
+  },
+  "homepage": "https://github.com/TheLudd/react-form-data",
+  "files": [
+    "README.md",
+    "dist/",
+    "lib/",
+    "index.js"
+  ],
   "author": "Ludwig Magnusson",
   "license": "ISC",
   "peerDependencies": {
-    "react": "~0.11.1"
+    "react": ">=0.11.1"
   },
   "devDependencies": {
     "browserify": "^5.11.2",
