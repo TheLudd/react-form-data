@@ -38,7 +38,7 @@ var MyForm = React.createClass({
 Formdata supports ```input```, ```textarea``` and ```select``` elements. The name of an element is used as key in the created object and the value is fetched form the entered text, the selected ```option``` element or the defined ```value``` on the checked radio button.
 
 ### checkboxes
-Checkboxes can be used on two different ways.
+Checkboxes can be used in two different ways.
   1. A single checkbox can tie ```true``` or ```faslse``` to its key.
   2. Several checkboxes can be used to tie an array of values to the same key.
 
@@ -58,7 +58,7 @@ To use case 2, create several checkboxes with the same name but different values
 ## methods
 When adding the mixin to your component, these methods will be available on it:
 ### getInitialFormData()
-Implement this method to have the form data be a non empty object in its initial state. Useful when you want to edit an existing entity. Any changes to the form will be added to this object.
+Implement this method to let ```this.formData``` be a non empty object in its initial state. Useful when you want to edit an existing entity. Any changes to the form will be added to this object.
 ### formDataDidChange(formData)
 Called whenever there is a change to the form. The argument is the form data object as it is after the change was made.
 
