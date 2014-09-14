@@ -1,7 +1,7 @@
 {
   "name": "react-form",
   "version": "0.1.0",
-  "description": "Mixin to get form data in nice object format in react.",
+  "description": "React mixin to get form data in nice object format.",
   "main": "index.js",
   "scripts": {
     "prepublish": "coffee -o dist -cb lib",
