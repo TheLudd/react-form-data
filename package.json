@@ -4,6 +4,7 @@
   "description": "Mixin to get form data in nice object format in react.",
   "main": "index.js",
   "scripts": {
+    "prepublish": "coffee -o dist -cb lib",
     "bundleReact": "browserify -r react/addons > generated/react-browserified.js",
     "testWatch": "watchify -x react/addons -t coffee-reactify test/FormDataMixinTest.cjsx -o generated/testsbundle.js -v",
     "runtests": "touch generated/testsbundle.js && karma start",
