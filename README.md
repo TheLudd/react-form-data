@@ -1,5 +1,5 @@
 # react-form-data
-React form data is a React mixin that will allow you to get data from an html for in a nice javascript object format. 
+React form data is a React mixin that will allow you to get data from an html form in a nice javascript object format. 
 ## installation
 ```bash
 npm i react-form-data -S
