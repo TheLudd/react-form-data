@@ -2,8 +2,9 @@ React = require 'react/addons'
 FormDataMixin = require '../lib/FormDataMixin.coffee'
 
 TestForm = React.createClass
-  getInitialState: -> formData: disagree: true
-  formDataDidChange: -> @setState formData: @formData
+  getInitialState: -> display: disagree: true
+  formDataDidChange: -> @setState display: @formData
+  getInitialFormData: -> disagree: true
   mixins: [ FormDataMixin ]
   render: ->
     <div>
@@ -43,7 +44,7 @@ TestForm = React.createClass
         Green
         <input type="radio" name="favColor" ref="green" value="green" />
       </form>
-      <pre>{JSON.stringify(@state.formData, undefined, 2)}</pre>
+      <pre>{JSON.stringify(@state.display, undefined, 2)}</pre>
     </div>
 
 module.exports = TestForm

@@ -59,5 +59,3 @@ describe 'ReactFormMixin', ->
   it 'should change existing selected radio value', ->
     [ 'blue', 'green' ].forEach changeCheckable
     component.formData.favColor.should.eql 'green'
-
-      

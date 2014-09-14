@@ -18,7 +18,11 @@ getValue = (el, currentValue) ->
       return el.checked
 
 module.exports =
-  componentWillMount: -> @formData = {}
+  componentWillMount: ->
+    if @getInitialFormData?
+      @formData = @getInitialFormData()
+    else
+      @formData = {}
   updateFormData: (e) ->
     t = e.target
     key = t.getAttribute 'name'
