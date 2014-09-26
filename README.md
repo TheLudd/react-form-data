@@ -35,12 +35,12 @@ var MyForm = React.createClass({
 });
 ```
 ## input elements
-Formdata supports ```input```, ```textarea``` and ```select``` elements. The name of an element is used as key in the created object and the value is fetched form the entered text, the selected ```option``` element or the defined ```value``` on the checked radio button.
+react-form-data supports ```input```, ```textarea``` and ```select``` elements. The name of an element is used as key in the created object and the value is fetched form the entered text, the selected ```option``` element or the defined ```value``` on the checked radio button.
 
 ### checkboxes
 Checkboxes can be used in two different ways.
-  1. A single checkbox can tie ```true``` or ```faslse``` to its key.
-  2. Several checkboxes can be used to tie an array of values to the same key.
+  1. A single checkbox can map ```true``` or ```false``` to its key.
+  2. Several checkboxes can be used to map an array of values to the same key.
 
 To use case 1, don't give the checkbox a value:
 ```
