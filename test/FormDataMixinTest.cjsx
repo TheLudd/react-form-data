@@ -63,3 +63,7 @@ describe 'ReactFormMixin', ->
   it 'should allow manual setting of values', ->
     component.setFormData 'foo', 'bar'
     component.formData.foo.should.equal 'bar'
+
+  it 'should allow clearing of values', ->
+    component.clearFormData()
+    component.formData.should.eql {}
