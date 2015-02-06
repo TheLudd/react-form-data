@@ -1,5 +1,5 @@
 # react-form-data
-React form data is a React mixin that will allow you to get data from an html form in a nice javascript object format. 
+React form data is a React mixin that will allow you to get data from an html form in a nice javascript object format.
 ## installation
 ```bash
 npm i react-form-data -S
@@ -55,12 +55,21 @@ To use case 2, create several checkboxes with the same name but different values
   <input type="checkbox" name="skills" value="haskell" />
 ```
 ```this.formData.skills``` will be an array of the checked values. E.g. ```[ 'javascript', 'coffeescript' ]```
+
 ## methods
 When adding the mixin to your component, these methods will be available on it:
+
 ### getInitialFormData()
 Implement this method to let ```this.formData``` be a non empty object in its initial state. Useful when you want to edit an existing entity. Any changes to the form will be added to this object.
+
 ### formDataDidChange(formData)
 Called whenever there is a change to the form. The argument is the form data object as it is after the change was made.
+
+### setFormData(key, value)
+Manually update ```this.formData``` with ```key``` and ```value```
+
+### clearFormData()
+Sets ```this.formData``` to an empty object.
 
 ## demo
 This repository contains a demo. To run it, clone the repo and execute ```npm run demo```. You can now view the demo by visiting [http://localhost:3000](http://localhost:3000)
