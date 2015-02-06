@@ -51,7 +51,7 @@ describe 'ReactFormMixin', ->
   it 'should remove selected elements from the list', ->
     [ 'money', 'food', 'money' ].forEach changeCheckable
     component.formData.want.should.eql [ 'food' ]
-      
+
   it 'should map name to value for selected radio', ->
     changeCheckable 'blue'
     component.formData.favColor.should.eql 'blue'
@@ -59,3 +59,7 @@ describe 'ReactFormMixin', ->
   it 'should change existing selected radio value', ->
     [ 'blue', 'green' ].forEach changeCheckable
     component.formData.favColor.should.eql 'green'
+
+  it 'should allow manual setting of values', ->
+    component.setFormData 'foo', 'bar'
+    component.formData.foo.should.equal 'bar'

@@ -28,3 +28,5 @@ module.exports =
     key = t.getAttribute 'name'
     @.formData[key] = getValue t, @.formData[key]
     @formDataDidChange() if @formDataDidChange?
+  setFormData: (key, value) ->
+    @.formData[key] = value
