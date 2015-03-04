@@ -13,7 +13,7 @@ TestForm = React.createClass
         <input ref="textInput" name="firstName" defaultValue="" />
         <br/>
         Description
-        <textarea ref="textarea" name="description" defaultValue=""></textarea> 
+        <textarea ref="textarea" name="description" defaultValue=""></textarea>
         <br/>
         Qty
         <select ref="select" name="qty" defaultValue="">
@@ -43,6 +43,8 @@ TestForm = React.createClass
         <input type="radio" name="favColor" ref="blue" value="blue" />
         Green
         <input type="radio" name="favColor" ref="green" value="green" />
+        Input without name, ignored
+        <input ref="noName" defaultValue="" />
       </form>
       <pre>{JSON.stringify(@state.display, undefined, 2)}</pre>
     </div>

@@ -67,3 +67,10 @@ describe 'ReactFormMixin', ->
   it 'should allow clearing of values', ->
     component.clearFormData()
     component.formData.should.eql {}
+
+  it 'should ignore input fields without name', ->
+    noName = component.refs.noName.getDOMNode()
+    noName.value = 'foo'
+    TestUtils.Simulate.change noName
+    component.formData.should.eql { disagree: true }
+
