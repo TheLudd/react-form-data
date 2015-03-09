@@ -74,3 +74,15 @@ describe 'ReactFormMixin', ->
     TestUtils.Simulate.change noName
     component.formData.should.eql { disagree: true }
 
+  it 'should allow resetting of the form data', ->
+    component.resetFormData(bar: 'baz')
+    component.formData.should.eql bar: 'baz'
+
+  it 'should not affect the input object to resetFormData', ->
+    input = bar: 'baz'
+    component.resetFormData(input)
+    component.setFormData(bar: 'qux')
+    input.should.eql bar: 'baz'
+
+
+

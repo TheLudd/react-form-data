@@ -29,10 +29,15 @@ module.exports =
     t = e.target
     key = t.getAttribute 'name'
     if key?
-      @formData[key] = getValue t, @.formData[key]
+      newValue = getValue t, @formData[key]
+      @setFormData key, newValue
       @formDataDidChange() if @formDataDidChange?
 
-  setFormData: (key, value) ->
-    @formData[key] = value
+  setFormData: (key, value) -> @formData[key] = value
 
   clearFormData: -> @formData = {}
+
+  resetFormData: (obj) ->
+    @clearFormData()
+    Object.keys(obj).forEach (key) =>
+      @formData[key] = obj[key]

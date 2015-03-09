@@ -71,5 +71,8 @@ Manually update ```this.formData``` with ```key``` and ```value```
 ### clearFormData()
 Sets ```this.formData``` to an empty object.
 
+### resetFormData(obj)
+Makes a shallow clone of object and replaces ```this.formData``` with the clone.
+
 ## demo
 This repository contains a demo. To run it, clone the repo and execute ```npm run demo```. You can now view the demo by visiting [http://localhost:3000](http://localhost:3000)
