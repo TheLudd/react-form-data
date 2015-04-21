@@ -62,8 +62,8 @@ When adding the mixin to your component, these methods will be available on it:
 ### getInitialFormData()
 Implement this method to let ```this.formData``` be a non empty object in its initial state. Useful when you want to edit an existing entity. Any changes to the form will be added to this object.
 
-### formDataDidChange(formData)
-Called whenever there is a change to the form. The argument is the form data object as it is after the change was made.
+### formDataDidChange()
+Called whenever there is a change in the form. The new data is available in `this.formData`.
 
 ### setFormData(key, value)
 Manually update ```this.formData``` with ```key``` and ```value```
