@@ -19,7 +19,7 @@ getValue = (el, currentValue) ->
 
 module.exports =
 
-  componentWillMount: ->
+  UNSAFE_componentWillMount: ->
     if @getInitialFormData?
       @formData = @getInitialFormData()
     else
