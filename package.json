@@ -1,6 +1,6 @@
 {
   "name": "react-form-data",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "React mixin to get form data in nice javascript object format.",
   "main": "index.js",
   "scripts": {
